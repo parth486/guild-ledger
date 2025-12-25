@@ -1,0 +1,854 @@
+/**
+ * Urbana Guild Ledger - Admin Styles
+ * Version: 1.0.1
+ * 
+ * Changelog:
+ * v1.0.1 (2025-10-08) - Beta: Added modern DataViews styling, responsive design, animations
+ * v1.0.0 (2025-09-29) - Initial release
+ */
+
+/* Main admin page styling */
+.urbana-main .card {
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+/* ===================================
+   DataViews Modern List Styling
+   =================================== */
+
+/* Enhanced table layout with modern design */
+.post-type-urbana_ledger .wp-list-table {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+}
+
+.post-type-urbana_ledger .wp-list-table thead {
+    background: linear-gradient(180deg, #f8f9fa 0%, #f0f1f3 100%);
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.post-type-urbana_ledger .wp-list-table th {
+    font-weight: 600;
+    color: #1e293b;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    padding: 14px 12px;
+}
+
+.post-type-urbana_ledger .wp-list-table tbody tr {
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.post-type-urbana_ledger .wp-list-table tbody tr:hover {
+    background-color: #f8f9fc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.post-type-urbana_ledger .wp-list-table td {
+    padding: 16px 12px;
+    vertical-align: middle;
+}
+
+/* Modern search and filter bar */
+.post-type-urbana_ledger .tablenav {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+/* Search input (scoped) - unified styles for any search input and the urbana-specific input class */
+.post-type-urbana_ledger .search-box input[type="search"],
+.post-type-urbana_ledger .search-box input.urbana-search-input {
+    box-sizing: border-box;
+    padding-left: 48px; /* space for icon */
+    padding-right: 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    font-size: 14px;
+    min-width: 340px;
+    height: 44px;
+    line-height: 44px;
+    background-repeat: no-repeat;
+    background-position: 14px center;
+    background-size: 16px 16px;
+    transition: all 0.12s ease;
+}
+
+.post-type-urbana_ledger .search-box input[type="search"]:focus,
+.post-type-urbana_ledger .search-box input.urbana-search-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+    outline: none;
+}
+
+/* Add icon to the class-based input (keeps default WP inputs unaffected until JS adds class) */
+.post-type-urbana_ledger .search-box input.urbana-search-input {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24'><path fill='%2364748b' d='M21.53 20.47l-5.1-5.1A7.5 7.5 0 109.5 17a7.5 7.5 0 006.36-3.73l5.1 5.1a.75.75 0 101.06-1.06zM4 10.5a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z'/></svg>");
+}
+
+/* Buttons aligned to the input (fill container height) */
+.post-type-urbana_ledger .search-box .search-clear,
+.post-type-urbana_ledger .search-box .button.search-submit,
+.post-type-urbana_ledger .search-box input[type="submit"] {
+    box-sizing: border-box;
+    height: 100%;
+    min-width: 84px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 0 14px;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Highly specific reset for Clear button to avoid WP baseline differences */
+.post-type-urbana_ledger .search-box button.search-clear,
+.post-type-urbana_ledger .search-box .search-clear.button {
+    height: 100% !important;
+    min-width: 84px;
+    padding: 0 12px !important; /* no vertical padding */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    border: 1px solid #d0d5dd !important;
+    background: #fff !important;
+    color: #374151 !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+}
+
+.post-type-urbana_ledger .search-box .search-clear {
+    padding: 0 12px;
+    border: 1px solid #d0d5dd;
+    background: #fff;
+    color: #374151;
+}
+
+.post-type-urbana_ledger .search-box .button.search-submit {
+    padding: 8px 16px;
+}
+
+/* Accessibility: ensure icons don't interfere with text selection */
+.post-type-urbana_ledger .search-box input.urbana-search-input::-ms-clear { display: none; }
+
+
+/* Ensure generic .button inside the search-box aligns with our inputs */
+.post-type-urbana_ledger .search-box .button {
+    padding: 0 16px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    line-height: 1;
+    vertical-align: middle;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* Empty state styling */
+.post-type-urbana_ledger .no-items {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8f9fc;
+    border-radius: 8px;
+    color: #64748b;
+    font-size: 15px;
+}
+
+/* Pagination modern styling */
+.post-type-urbana_ledger .tablenav-pages {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.post-type-urbana_ledger .tablenav-pages .button,
+.post-type-urbana_ledger .tablenav-pages a {
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.post-type-urbana_ledger .tablenav-pages .button:hover,
+.post-type-urbana_ledger .tablenav-pages a:hover {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+/* Modern column headers with sort indicators */
+.post-type-urbana_ledger .wp-list-table th.sortable a,
+.post-type-urbana_ledger .wp-list-table th.sorted a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #1e293b;
+}
+
+.post-type-urbana_ledger .wp-list-table th.sortable a:hover {
+    color: #2563eb;
+}
+
+.post-type-urbana_ledger .wp-list-table th.sorted a {
+    color: #2563eb;
+}
+
+/* Add modern icons for sort indicators */
+.post-type-urbana_ledger .wp-list-table .sorted .sorting-indicator::before {
+    content: "↓";
+    font-size: 14px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.post-type-urbana_ledger .wp-list-table .sorted.asc .sorting-indicator::before {
+    content: "↑";
+}
+
+/* Card-like appearance for entries on mobile */
+@media screen and (max-width: 782px) {
+    .post-type-urbana_ledger .wp-list-table tbody tr {
+        display: block;
+        margin-bottom: 16px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 16px;
+        background: white;
+    }
+    
+    .post-type-urbana_ledger .wp-list-table tbody td {
+        display: block;
+        padding: 8px 0;
+        border: none;
+    }
+    
+    .post-type-urbana_ledger .wp-list-table tbody td::before {
+        content: attr(data-colname) ": ";
+        font-weight: 600;
+        display: inline-block;
+        min-width: 120px;
+    }
+}
+
+/* Meta box styling */
+#urbana_ledger_details .form-table {
+    margin-top: 0;
+}
+
+#urbana_ledger_details .form-table th {
+    width: 150px;
+    padding: 15px 10px 15px 0;
+    vertical-align: top;
+}
+
+#urbana_ledger_details .form-table td {
+    padding: 15px 10px;
+}
+
+/* Required field indicator */
+.required {
+    color: #dc3232;
+    font-weight: bold;
+}
+
+/* Input field styling */
+#urbana_ledger_details input[type="text"],
+#urbana_ledger_details input[type="date"],
+#urbana_ledger_details select {
+    width: 100%;
+    max-width: 400px;
+}
+
+#urbana_ledger_details textarea {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Interaction type badges in list table */
+.interaction-type {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.interaction-type--email {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.interaction-type--video_call {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.interaction-type--in_person {
+    background-color: #e8f5e8;
+    color: #2e7d32;
+}
+
+.interaction-type--phone_call {
+    background-color: #fff3e0;
+    color: #ef6c00;
+}
+
+/* List table improvements */
+.post-type-urbana_ledger .wp-list-table .title.column-title { width: 40%; }
+.post-type-urbana_ledger .wp-list-table .column-contact_name { width: 18%; }
+.post-type-urbana_ledger .wp-list-table .column-company_council { width: 20%; }
+.post-type-urbana_ledger .wp-list-table .column-interaction_date { width: 12%; }
+.post-type-urbana_ledger .wp-list-table .column-interaction_type { width: 10%; }
+.post-type-urbana_ledger .wp-list-table .column-lead_status { width: 8%; }
+
+/* Make sure check column remains small and doesn't show ellipsis */
+.post-type-urbana_ledger .wp-list-table .column-cb,
+.post-type-urbana_ledger .wp-list-table .check-column {
+    width: 40px;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Filters container (improved, responsive and consistent with WP) */
+.urbana-filters {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 8px;
+}
+
+.urbana-filters input[type="date"], .urbana-filters select {
+    padding: 6px 10px;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    min-width: 140px;
+    height: 34px;
+    background: #fff;
+}
+
+.urbana-filters button {
+    height: 34px;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+
+
+/* Normalize control heights in the top/bottom tablenav (keeps flexible sizing; search controls are styled separately below) */
+.post-type-urbana_ledger .tablenav .button,
+.post-type-urbana_ledger .tablenav .button-secondary,
+.post-type-urbana_ledger .tablenav input[type="date"],
+.post-type-urbana_ledger .tablenav select {
+    min-height: 36px;
+    line-height: normal;
+    padding: 6px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 6px;
+    background: #fff;
+}
+
+/* Search controls (scoped): ensure a consistent, professional appearance and equal heights */
+.post-type-urbana_ledger .search-box {
+    display: flex;
+    align-items: stretch; /* ensure children fill the container height */
+    gap: 8px;
+    height: 44px; /* explicit container height to enforce equal children height */
+}
+
+.post-type-urbana_ledger .search-box input.urbana-search-input {
+    box-sizing: border-box;
+    padding-left: 12px; /* smaller left padding because icon is a separate element */
+    padding-right: 12px;
+    border-radius: 8px;
+    height: 100%; /* fill container */
+    border: 1px solid #d0d5dd;
+    min-width: 340px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Use a background SVG inside the input for the full search icon (prevents duplicates) */
+.post-type-urbana_ledger .search-box input.urbana-search-input {
+    -webkit-appearance: none;
+    appearance: none;
+    /* full, slightly heavier magnifier icon as background (data URI) */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%2364748b' d='M10 2a8 8 0 105.293 14.293l4.707 4.707a1 1 0 001.414-1.414l-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12A6 6 0 0110 4z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: 16px center; /* space from left */
+    background-size: 22px 22px;
+    padding-left: 56px; /* allocate space for the icon */
+}
+
+/* Hide browser-native search decorations (Chrome/Safari) */
+.post-type-urbana_ledger .search-box input.urbana-search-input::-webkit-search-decoration,
+.post-type-urbana_ledger .search-box input.urbana-search-input::-webkit-search-cancel-button,
+.post-type-urbana_ledger .search-box input.urbana-search-input::-webkit-search-results-button,
+.post-type-urbana_ledger .search-box input.urbana-search-input::-webkit-search-results-decoration {
+    display: none;
+    -webkit-appearance: none;
+} 
+
+.post-type-urbana_ledger .search-box input.urbana-search-input::placeholder {
+    color: #6b7280;
+}
+
+.post-type-urbana_ledger .search-box .search-clear,
+.post-type-urbana_ledger .search-box .button.search-submit {
+    box-sizing: border-box;
+    height: 44px;
+    min-width: 84px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 0 14px;
+    font-size: 14px;
+}
+
+/* Small visual adjustments */
+.post-type-urbana_ledger .search-box .search-clear {
+    padding: 0 12px;
+    border: 1px solid #d0d5dd;
+    background: #fff;
+    color: #374151;
+}
+
+.post-type-urbana_ledger .search-box .button.search-submit {
+    padding: 8px 16px;
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 782px) {
+    .post-type-urbana_ledger .search-box input.urbana-search-input { min-width: 200px; }
+    .post-type-urbana_ledger .search-box { gap: 6px; }
+}
+
+/* Ensure alignleft groups controls neatly */
+.post-type-urbana_ledger .tablenav .alignleft,
+.post-type-urbana_ledger .tablenav .bulkactions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Make export look like a normal button but with accent color */
+#export-ledger-btn {
+    background: linear-gradient(180deg, #2563eb 0%, #1e40af 100%);
+    border: 1px solid rgba(0,0,0,0.05);
+    color: white;
+    font-weight: 600;
+    height: 36px;
+    padding: 6px 12px;
+    box-shadow: none;
+}
+#export-ledger-btn .dashicons { margin-right: 6px; display: none; }
+
+/* Ensure search clear button aligns */
+.post-type-urbana_ledger .search-box .search-clear {
+    height: 36px;
+    padding: 6px 12px;
+}
+
+/* Fail-safe: hide any accidental thead placed inside tbody (cleanup in JS too) */
+.post-type-urbana_ledger .wp-list-table tbody thead { display: none !important; }
+
+/* Make row-actions clearly visible */
+.post-type-urbana_ledger .row-actions { display: block; margin-top: 6px; font-size: 13px; }
+.post-type-urbana_ledger .row-actions a { margin-right: 6px; }
+
+/* Loading overlay */
+.urbana-loading-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.7);
+    z-index: 20;
+    border-radius: 8px;
+}
+.urbana-loading-spinner {
+    width: 36px;
+    height: 36px;
+    border: 4px solid #e6eef6;
+    border-top-color: #2563eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+/* Table cells: prevent awkward vertical stacking generally, but allow title column to show actions */
+.post-type-urbana_ledger .wp-list-table tbody td,
+.post-type-urbana_ledger .wp-list-table tbody th {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+/* Title column: allow up to 2 lines and show row-actions beneath */
+.post-type-urbana_ledger .wp-list-table .title.column-title {
+    overflow: visible; /* allow row-actions to be visible */
+    white-space: normal; /* allow wrapping for long titles */
+    max-width: 480px; /* give the title column room to expand */
+}
+
+/* Avoid showing the footer header (duplicate header row) for the ledger list — prevents visual overlap when there are no entries */
+.post-type-urbana_ledger .wp-list-table tfoot {
+    display: none;
+}
+
+/* Hide any accidental header cells placed inside the tbody (some admin pages may duplicate headers into the body) */
+.post-type-urbana_ledger .wp-list-table tbody th {
+    display: none !important;
+}
+
+.post-type-urbana_ledger .wp-list-table .title.column-title .row-title,
+.post-type-urbana_ledger .wp-list-table .title.column-title strong {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 44px; /* ~2 lines */
+    white-space: normal;
+}
+
+/* Vertically center title content and allow actions to flow beneath the title */
+.post-type-urbana_ledger .wp-list-table tbody tr td.title.column-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 12px; /* normal padding - actions will be in-flow below the title */
+    position: relative;
+} 
+
+/* Title inner container ensures vertical centering and controlled hover shift */
+.post-type-urbana_ledger .wp-list-table .title.column-title strong { display:block; }
+.post-type-urbana_ledger .wp-list-table .title.column-title .title-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 48px; /* provide enough baseline height to vertically center */
+}
+.post-type-urbana_ledger .wp-list-table .title.column-title .title-text {
+    display:block;
+    width: 100%;
+}
+.post-type-urbana_ledger .wp-list-table .title.column-title .row-title {
+    display: block;
+    line-height: 1.3;
+    margin: 0; /* reset margins so .title-inner centers the title */
+}
+
+/* On hover, slightly reduce title spacing so row-actions have a small gap without overlap */
+.post-type-urbana_ledger .wp-list-table tbody tr:hover .title.column-title .title-text {
+    margin-bottom: 6px;
+}
+
+/* Row-actions are in-flow beneath the title; hidden by default and revealed on hover */
+.post-type-urbana_ledger .wp-list-table .row-actions {
+    /* ensure we don't inherit off-screen hiding from core styles */
+    position: relative;
+    left: auto;
+    display: flex;
+    gap: 6px; /* reduced gap for tighter spacing */
+    align-items: center;
+    align-self: flex-start; /* align with the title's left edge */
+    white-space: nowrap; /* keep actions on one line */
+
+    /* hide by default via max-height and opacity so reveal animation is smooth */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: max-height 0.18s ease, opacity 0.12s ease, margin 0.12s ease;
+    margin-top: 0;
+}
+
+.post-type-urbana_ledger .wp-list-table .row-actions span { font-size: 0; }
+.post-type-urbana_ledger .wp-list-table .row-actions span a { display: inline-block; font-size: 13px; }
+
+
+/* Small screens: place actions below the title as normal flow to avoid cramped layout */
+@media screen and (max-width: 600px) {
+    .post-type-urbana_ledger .wp-list-table .row-actions {
+        position: static;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+        margin-top: 8px;
+        gap: 8px;
+    }
+    .post-type-urbana_ledger .wp-list-table tbody tr td.title.column-title { padding-bottom: 10px; }
+}
+/* Visible on row hover or when explicitly present — reveal actions in-flow beneath the title */
+.post-type-urbana_ledger .wp-list-table tbody tr:hover .title.column-title .row-actions,
+.post-type-urbana_ledger .wp-list-table tbody tr .title.column-title .row-actions.show,
+.post-type-urbana_ledger .wp-list-table td.title.column-title:hover .row-actions {
+    position: static; /* ensure core left:-9999em is not applied */
+    left: auto;
+    opacity: 1;
+    pointer-events: auto;
+    color: inherit; /* reveal color (overrides body:not(.plugins-php) .row-actions color:transparent) */
+    max-height: 240px; /* allow enough room for actions */
+    margin-top: 4px; /* reduce spacing */
+} 
+
+.post-type-urbana_ledger .wp-list-table .title.column-title .row-actions span { font-size: 13px; }
+
+
+/* Fallback: ensure actions are visible if hovering the inner elements directly */
+.post-type-urbana_ledger .wp-list-table .title.column-title .title-inner:hover + .row-actions,
+.post-type-urbana_ledger .wp-list-table .title.column-title .title-inner:hover .row-actions {
+    opacity: 1;
+    pointer-events: auto;
+    max-height: 240px;
+    margin-top: 8px;
+} 
+
+/* Separator between actions using pseudo element for clean styling */
+.post-type-urbana_ledger .wp-list-table .row-actions span + span::before {
+    content: "|";
+    color: #c8c9cc;
+    margin: 0 6px; /* slightly tighter */
+} 
+
+/* Make sure action links are compact */
+.post-type-urbana_ledger .wp-list-table .row-actions a { white-space: nowrap; }
+
+/* When the table is compact (many rows), allow a slightly tighter layout */
+.post-type-urbana_ledger .wp-list-table.compact tbody tr td.title.column-title { padding: 8px 12px; }
+
+/* If WP or other styles enforce nowrap on table cells, explicitly allow wrapping for title */
+.post-type-urbana_ledger .wp-list-table .title.column-title,
+.post-type-urbana_ledger .wp-list-table .title.column-title td,
+.post-type-urbana_ledger .wp-list-table .title.column-title th {
+    white-space: normal !important;
+}
+
+.post-type-urbana_ledger .row-actions {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.post-type-urbana_ledger .row-actions span { margin-right: 12px; }
+
+/* Bottom tablenav alignment */
+.post-type-urbana_ledger .tablenav.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 12px;
+}
+
+/* Ensure bottom bulkactions align to left like the top */
+.post-type-urbana_ledger .tablenav.bottom .bulkactions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Interaction type badges: more compact rounded pills */
+.interaction-type {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: none;
+}
+
+.interaction-type--email { background-color: #e3f2fd; color: #1565c0; }
+.interaction-type--video_call { background-color: #f3e5f5; color: #7b1fa2; }
+.interaction-type--in_person { background-color: #e8f5e8; color: #2e7d32; }
+.interaction-type--phone_call { background-color: #fff3e0; color: #ef6c00; }
+
+/* Export button adjustments */
+#export-ledger-btn {
+    background: linear-gradient(180deg, #2563eb 0%, #1e40af 100%);
+    border: none;
+    color: white;
+    font-weight: 500;
+    height: 34px;
+    padding: 6px 12px;
+}
+
+#export-ledger-btn:hover { transform: translateY(-1px); }
+
+/* Dashboard styles */
+.urbana-dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.urbana-dashboard-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+/* Form validation styling */
+input:required:invalid {
+    border-color: #dc3232;
+}
+
+input:required:valid {
+    border-color: #00a32a;
+}
+
+/* Help text styling */
+.form-table .description {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* WordPress editor wrapper */
+#urbana_notes_wp_editor_wrap {
+    max-width: 600px;
+}
+
+/* Add fade-in animation for filtered results */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Modern action buttons styling */
+.post-type-urbana_ledger .row-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.post-type-urbana_ledger .row-actions span {
+    margin: 0;
+}
+
+.post-type-urbana_ledger .row-actions a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.post-type-urbana_ledger .row-actions a:hover {
+    color: #1e40af;
+}
+
+/* Export and action buttons */
+#export-ledger-btn {
+    background: linear-gradient(180deg, #2563eb 0%, #1e40af 100%);
+    border: none;
+    color: white;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+#export-ledger-btn:hover {
+    background: linear-gradient(180deg, #1e40af 0%, #1a3a9b 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Notice animations */
+.notice {
+    animation: slideInDown 0.3s ease;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading state for live search */
+.wp-list-table.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 782px) {
+    #urbana_ledger_details .form-table th,
+    #urbana_ledger_details .form-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    #urbana_ledger_details .form-table th {
+        border-bottom: 0;
+    }
+    
+    #urbana_ledger_details input[type="text"],
+    #urbana_ledger_details input[type="date"],
+    #urbana_ledger_details select {
+        max-width: 100%;
+    }
+    
+    .wp-list-table .column-contact_name,
+    .wp-list-table .column-company_council,
+    .wp-list-table .column-interaction_date,
+    .wp-list-table .column-interaction_type {
+        width: auto;
+    }
+    
+    /* Responsive: Stack controls on small screens */
+    @media screen and (max-width: 600px) {
+        .post-type-urbana_ledger .search-box input.urbana-search-input,
+        .post-type-urbana_ledger .search-box input[type="search"] {
+            min-width: 100%;
+            margin-bottom: 10px;
+        }
+
+        #export-ledger-btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+}
